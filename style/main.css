@@ -1,0 +1,299 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Epilogue", sans-serif;
+}
+*::before, *::after {
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-size: 18px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.layer {
+  z-index: 5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+}
+
+header {
+  padding-inline: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+header .navigation {
+  display: flex;
+  gap: 3rem;
+}
+header .navigation .open-menu,
+header .navigation .close-menu {
+  display: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  align-items: start;
+}
+header .navigation nav {
+  display: flex;
+  width: -webkit-fill-available;
+  justify-content: space-between;
+  align-items: start;
+}
+header .navigation nav .main {
+  display: flex;
+  gap: 2rem;
+}
+header .navigation nav .main .close-menu {
+  justify-content: end;
+}
+header .navigation nav .main li {
+  position: relative;
+  font-size: 15px;
+  width: fit-content;
+}
+header .navigation nav .main li.features, header .navigation nav .main li.company {
+  display: flex;
+  gap: 5px;
+}
+header .navigation nav .main li.features .imgs, header .navigation nav .main li.company .imgs {
+  position: relative;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .navigation nav .main li.features .imgs img:last-child, header .navigation nav .main li.company .imgs img:last-child {
+  display: none;
+}
+header .navigation nav .main li.features ul, header .navigation nav .main li.company ul {
+  position: absolute;
+  top: 2em;
+  display: grid;
+  gap: 1rem;
+  box-shadow: 0 10px 50px -5px rgba(0, 0, 0, 0.21);
+  border-radius: 10px;
+  font-size: 1rem;
+  width: max-content;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+header .navigation nav .main li.features ul.features-ul, header .navigation nav .main li.company ul.features-ul {
+  right: 0;
+}
+header .navigation nav .main li.features ul.features-ul li, header .navigation nav .main li.company ul.features-ul li {
+  display: grid;
+  grid-template-columns: 15px auto;
+  gap: 10px;
+  cursor: pointer;
+}
+header .navigation nav .main li.features ul.company-ul, header .navigation nav .main li.company ul.company-ul {
+  width: max-content;
+}
+header .navigation nav .main li.features:hover > ul, header .navigation nav .main li.company:hover > ul {
+  padding: 1.5rem 1.7rem;
+  height: auto;
+}
+header .navigation nav .main li.features:hover > .imgs img:first-child, header .navigation nav .main li.company:hover > .imgs img:first-child {
+  display: none;
+}
+header .navigation nav .main li.features:hover > .imgs img:last-child, header .navigation nav .main li.company:hover > .imgs img:last-child {
+  display: block;
+}
+header .navigation nav .main li > a {
+  position: relative;
+  color: hsl(0, 0%, 41%);
+  transition: 0.3s;
+  font-weight: 800;
+}
+header .navigation nav .main li > a:hover {
+  color: hsl(0, 0%, 8%);
+}
+header .navigation nav .btns {
+  position: relative;
+  margin-top: -10px;
+}
+header .navigation nav .btns button {
+  background-color: transparent;
+  transition: 0.3s;
+  color: hsl(0, 0%, 41%);
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 700;
+}
+header .navigation nav .btns button:hover {
+  color: hsl(0, 0%, 8%);
+}
+header .navigation nav .btns button.register-btn {
+  border: 2px solid hsl(0, 0%, 8%);
+  padding: 12px 18px;
+  border-radius: 15px;
+  margin-left: 40px;
+}
+
+@media (max-width: 767px) {
+  .layer.brightless {
+    display: block;
+  }
+  header {
+    padding-bottom: 2rem;
+  }
+  header .navigation {
+    justify-content: space-between;
+  }
+  header .navigation .open-menu,
+  header .navigation .close-menu {
+    display: flex;
+  }
+  header .navigation nav {
+    flex-direction: column;
+    justify-content: unset;
+    align-items: center;
+    gap: 5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    padding: 0;
+    height: -webkit-fill-available;
+    overflow: hidden;
+    z-index: 10;
+    background-color: hsl(0, 0%, 98%);
+    transition: 0.3s ease-out;
+  }
+  header .navigation nav.active {
+    padding: 2rem 1.5rem;
+    width: 60%;
+  }
+  header .navigation nav .main {
+    flex-direction: column;
+    width: -webkit-fill-available;
+  }
+  header .navigation nav .main li {
+    gap: 15px !important;
+  }
+  header .navigation nav .main li.features ul, header .navigation nav .main li.company ul {
+    position: relative;
+    box-shadow: none;
+    top: 1em;
+    right: 41% !important;
+    gap: 1.5rem;
+  }
+  header .navigation nav .btns {
+    width: -webkit-fill-available;
+    text-align: center;
+    margin: 0;
+  }
+  header .navigation nav .btns .register-btn {
+    display: block;
+    margin-left: 0 !important;
+    margin-top: 20px;
+    width: -webkit-fill-available;
+  }
+}
+main {
+  margin: 2rem 8rem 6rem 10rem;
+  display: grid;
+  grid-template-columns: 550px 1fr;
+  gap: 6rem;
+}
+main .dialog {
+  padding-top: 5rem;
+}
+main .dialog h1 {
+  font-size: 5.1rem;
+}
+main .dialog p {
+  font-size: 19px;
+  line-height: 1.5;
+  margin: 4rem 0 2rem;
+  padding-right: 4rem;
+  color: hsl(0, 0%, 41%);
+}
+main .dialog button {
+  padding: 20px 30px;
+  border-radius: 15px;
+  background-color: hsl(0, 0%, 8%);
+  color: hsl(0, 0%, 98%);
+  border: none;
+  transition: 0.3s;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 2rem 0;
+  border: 2px solid hsl(0, 0%, 8%);
+}
+main .dialog button:hover {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(0, 0%, 8%);
+}
+main .dialog .sponsers {
+  margin-top: 6rem;
+}
+main .dialog .sponsers img:not(:first-child) {
+  margin-left: 2.5rem;
+}
+main picture img {
+  width: 36rem;
+  max-width: 100%;
+  height: 48rem;
+  object-fit: cover;
+}
+
+@media (max-width: 767px) {
+  main {
+    margin: 0;
+    margin-bottom: 6rem;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  main .dialog {
+    padding-top: 0;
+  }
+  main .dialog .text {
+    text-align: center;
+  }
+  main .dialog .text h1 {
+    font-size: 3rem;
+  }
+  main .dialog .text p {
+    padding-right: 0;
+    font-size: 23px;
+    margin: 2rem 0 0;
+  }
+  main .dialog .sponsers {
+    margin: 2rem auto 0;
+    width: fit-content;
+  }
+  main .dialog .sponsers img:not(:first-child) {
+    margin-left: 1.5rem;
+  }
+  main picture {
+    grid-row: 1;
+  }
+  main picture img {
+    width: unset;
+    height: unset;
+  }
+}
