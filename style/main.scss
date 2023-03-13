@@ -72,15 +72,15 @@ header {
       width: -webkit-fill-available;
       justify-content: space-between;
       align-items: start;
-
+      
+      .close-menu {
+        justify-content: end;
+        width: 100%;
+      }
 
       .main {
         display: flex;
         gap: 2rem;
-
-        .close-menu {
-          justify-content: end;
-        }
 
         li {
           position: relative;
